@@ -1,0 +1,22 @@
+
+.delay{
+    animation: delay 3s linear 2s
+}
+
+
+@keyframes delay {
+ 0%{
+    opacity: 0;
+ }   
+ 50%{
+    opacity: 0;
+ }
+
+ 70%{
+    opacity: 0;
+ }
+
+ 100%{
+    opacity: 1;
+ }
+}

@@ -1,7 +1,8 @@
 import * as React from "react";
 import { styled, useTheme } from "@mui/material/styles";
-
+import styles from "./Admin.module.css";
 import spinner from "/Fidget-spinner.gif";
+import Gear from "/Gear.gif";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -112,7 +113,14 @@ function AdminDashboard({ DashboardFor, childrenComponent, Options }) {
       });
   }
   return (
-    <Box sx={{ display: "flex", backgroundColor: "white", height: "100vh" }}>
+    <Box
+      sx={{
+        display: "flex",
+        backgroundColor: "white",
+        height: "100vh",
+        width: "100%  ",
+      }}
+    >
       <CssBaseline />
       <AppBar
         sx={{ bgcolor: "white", color: "#333" }}
@@ -131,6 +139,7 @@ function AdminDashboard({ DashboardFor, childrenComponent, Options }) {
               color: "#333",
               ...(open && { display: "none" }),
             }}
+            className={styles.menu}
           >
             <MenuIcon />
           </IconButton>
@@ -142,19 +151,14 @@ function AdminDashboard({ DashboardFor, childrenComponent, Options }) {
               alignItems: "center",
             }}
           >
-            <Typography
-              sx={{ fontWeight: "bold", textTransform: "capitalize" }}
-              variant="h6"
-              noWrap
-              component="div"
-            >
+            <Typography className={styles.dashboardName}>
               {DashboardFor}
             </Typography>
 
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src={spinner} />
+                  <Avatar alt="Remy Sharp" src={user.url} />
                 </IconButton>
               </Tooltip>
               <Menu
@@ -210,7 +214,7 @@ function AdminDashboard({ DashboardFor, childrenComponent, Options }) {
         <SideBarList key={crypto.randomUUID()} navigations={Options} />
       </Drawer>
 
-      <Main open={open}>
+      <Main open={open} className={styles.mainContainer}>
         <DrawerHeader />
         <div
           style={{

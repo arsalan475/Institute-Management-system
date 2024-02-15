@@ -23,13 +23,12 @@
     left: 50%;
     transform: translate(-50%,-50%);
     z-index: 100;
-    width: 65%;
+    width: 70%;
     height: 300px; 
     border: 1px solid #333;
     display: flex;
- 
     gap: 1rem;
-    padding: .7rem ;
+    padding:  1rem ;
     border-radius: 10px;
     background-color: white;
     box-shadow: 1px 1px 10px #333;
@@ -78,6 +77,14 @@ width: 30%;
     text-transform: capitalize;
  }
 
+ .closeIcon{
+    position: absolute;
+    right: 12px;
+    top: 10px;
+    color: red;
+    font-weight: 600;
+    cursor: pointer;
+ }
 
  .green{
     font-weight: 700;
@@ -90,6 +97,11 @@ width: 30%;
     .card {
      flex-direction: column;
      height: 70vh;
+    }
+    .closeIcon{
+        top: .8px;
+        right: 3px;
+        font-size: .7rem;
     }
     .card .imageContainer{
         width: 100%;
@@ -111,4 +123,46 @@ width: 30%;
              font-size: .5rem;
              color: #444;
           }
+  }
+
+  @media only screen and (max-width: 600px) {
+
+
+    .card img{
+        
+        height: 12rem
+        } 
+
+        .card{
+            height: 50%;
+        }
+    
+  }
+
+
+
+  @media only screen and (max-width: 430px) {
+    .card{
+        width: 70%;
+        height: 45%; 
+    }
+
+    .card .content{
+      gap: .4rem;
+    }
+
+    .detailContainer h2{
+        font-size: .5rem !important
+    }
+    .card img{
+        
+        height: 10rem
+        } 
+    
+  }
+
+  @media only screen and (max-width: 430px) {
+    .card{
+        width: 90%;
+    }
   }

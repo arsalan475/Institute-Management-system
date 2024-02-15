@@ -7,14 +7,18 @@ function ProfileCard({ isOpen, image, data }) {
 
   return (
     <>
-      <div className={styles.mainContainer} onClick={closeModal}></div>
+      <div className={styles.mainContainer}></div>
       <div className={styles.card}>
+        <span className={styles.closeIcon} onClick={closeModal}>
+          ❌
+        </span>
         <div className={styles.imageContainer}>
           <img src={image} />
         </div>
         <div className={styles.content}>
           <h1>
             <h2>{`${data.Name} ${data.fatherName}`}</h2>
+
             <p>{data.courseName}</p>
           </h1>
           <div className={styles.detailContainer}>

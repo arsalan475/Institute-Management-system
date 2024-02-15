@@ -1,0 +1,33 @@
+.dashboardName{
+    font-weight: 700 !important;
+    text-transform: capitalize !important;
+   display: flex !important;
+   justify-content: center !important;
+   align-items: center !important;
+   font-size: 1.2rem !important;
+   
+
+ 
+}
+
+@media only screen and (max-width: 560px) {
+
+.dashboardName{
+    font-size: 3.5vw !important;
+    
+   
+}
+
+.menu{
+    margin-right: .7rem !important;
+}
+}
+
+
+
+@media only screen and (max-width: 430px) {
+
+    .mainContainer{
+        padding: 0 !important;
+    }
+    }

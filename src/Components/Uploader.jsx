@@ -51,14 +51,12 @@ const Uploader = ({ email }) => {
           console.log("uploaded");
           setImageUrl(url);
           setUpload(true);
-          isloading(false);
         })
         .catch((error) => {
           // Handle any errors
-          console.log(error.message);
-          isloading(false);
           setUpload(false);
-        });
+        })
+        .finally(() => isloading(false));
     });
   }
 

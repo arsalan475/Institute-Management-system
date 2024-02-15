@@ -10,12 +10,14 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import spinner from "/Fidget-spinner.gif";
-
+import styles from "./CourseDetail.module.css";
+import { useEffect } from "react";
 function CourseDetail() {
   const { indivadualCourseEnrolledLength } = useContext(UserContext);
   const { indivadualCourseName } = useContext(UserContext);
   const { everyStudent, loading } = useContext(UserContext);
   console.log(everyStudent);
+
   //   console.log(data);
 
   return (
@@ -43,15 +45,22 @@ function CourseDetail() {
           <div
             style={{
               backgroundColor: "#f7f7f7",
-              height: "100vh",
+              height: "auto",
               width: "100%",
+              padding: "1rem",
+              textAlign: "center",
+              display: "flex",
+              alignItems: "center",
+              flexDirection: "column",
+              borderRadius: "10px",
             }}
+            className="wrapper"
           >
             <Typography
               variant="h2"
               color="text.primary"
               textTransform="uppercase"
-              sx={{ fontSize: "4vw", fontWeight: "900" }}
+              sx={{ fontSize: "3vw", fontWeight: "900" }}
             >
               {indivadualCourseName}
             </Typography>
@@ -59,13 +68,15 @@ function CourseDetail() {
               variant="h5"
               color="text.primary"
               textTransform="capitalize"
+              className={styles.subHeading}
+              sx={{ marginBottom: "1rem" }}
             >
               {indivadualCourseEnrolledLength >= 1 ? (
-                <h3 style={{ padding: 0, margin: 0, fontSize: "3vw" }}>
+                <h3 style={{ padding: 0, margin: 0, fontSize: "2vw" }}>
                   There are {indivadualCourseEnrolledLength} students in that
                   course
                   <br />
-                  <h6
+                  <span
                     style={{
                       marginTop: "0.7rem",
                       marginBottom: "0.3rem",
@@ -73,7 +84,7 @@ function CourseDetail() {
                     }}
                   >
                     Classes On {everyStudent[0].day}{" "}
-                  </h6>
+                  </span>
                 </h3>
               ) : (
                 <h3> No One Enrolled Yet </h3>
@@ -85,30 +96,46 @@ function CourseDetail() {
                   <List
                     key={i}
                     sx={{
-                      width: "100%",
+                      width: "50%",
                       bgcolor: "background.paper",
+                      padding: 0,
+                      borderRadius: "10px",
+                      overflow: "hidden",
+                      marginBottom: ".5rem",
+                      boxShadow: "0 1px 5px #333 ",
                     }}
+                    className={styles.full}
                   >
                     <ListItem
                       alignItems="flex-start"
                       sx={{
                         width: "100%",
-
+                        padding: "0 8px",
                         bgcolor: "background.paper",
                       }}
                     >
                       <ListItemAvatar>
-                        <Avatar alt="Remy Sharp" src={el.url} />
+                        <Avatar
+                          className={styles.image}
+                          alt="Remy Sharp"
+                          src={el.url}
+                        />
                       </ListItemAvatar>
                       <ListItemText
-                        primary={`${el.Name} ${el.fatherName}`}
+                        primary={
+                          <span className={styles.subHeading}>
+                            {" "}
+                            {el.Name} {el.fatherName}
+                          </span>
+                        }
                         secondary={
                           <React.Fragment>
                             <Typography
-                              sx={{ display: "inline" }}
-                              component="span"
-                              variant="body2"
-                              color="text.primary"
+                              // sx={{ display: "inline" }}
+                              // component="span"
+                              // variant="body2"
+                              // color="text.primary"
+                              className={styles.subHeading}
                             >
                               {el.cityName}
                             </Typography>

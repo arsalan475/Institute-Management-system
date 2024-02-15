@@ -67,6 +67,7 @@ function Login() {
           gap: "2rem",
           margin: "10% auto",
           textAlign: "center",
+          padding: "0 .5rem",
         }}
       >
         <Typography level="h1">Login Form</Typography>

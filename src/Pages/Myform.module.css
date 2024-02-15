@@ -1,0 +1,83 @@
+
+.formHeading{
+    font-size: 3rem;
+}
+
+.fieldContainer{
+    margin: 0 auto;
+    display: flex;
+    width: 70%;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.btnContainer{
+width: 70%;
+display: flex;
+gap: 1rem;
+justify-content: flex-end;
+margin: 0 auto;
+}
+
+.formBtn{
+    width: 10rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.textFilledResponsive{
+    width: 47%;
+        }
+
+@media only screen and (max-width: 450px) {
+
+    .textFilledResponsive{
+width: 100%;
+    }
+
+    .formHeading{
+        font-size: 7vw;
+    }
+
+    .fieldContainer{
+       
+       gap: 1rem;
+        width: 90%;
+       
+    }
+
+}
+
+
+@media only screen and (max-width: 760px) {
+
+
+
+    .fieldContainer{
+       
+       
+        width: 95%;
+       
+    }
+
+    .btnContainer{
+        width: 94%;
+    }
+}
+
+
+@media only screen and (max-width: 560px) {
+
+
+
+    .btnContainer{
+        width: 45%;
+    }
+
+    .formBtn{
+padding: 0;
+width: 6rem;
+    }
+}

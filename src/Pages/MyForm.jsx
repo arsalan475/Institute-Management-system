@@ -3,6 +3,7 @@ import spinner from "/Fidget-spinner.gif";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
+import styles from "./Myform.module.css";
 
 // importing firbase auth and createUser with firebase config file
 
@@ -152,104 +153,69 @@ export default function MyForm({ formName, labels, btnName, children }) {
             width: "100%",
           }}
         >
-          <h1 style={{ fontSize: "3rem" }}>{formName}</h1>
-          <div
-            style={{
-              margin: "0 auto",
-              display: "flex",
-              width: "70%",
-              gap: "2rem",
-              justifyContent: "center",
-            }}
-          >
-            <div
-              style={{
-                width: "50%",
-                display: "flex",
-                flexDirection: "column",
-                gap: "2rem",
-              }}
-            >
-              {/* {fieldComponent1} */}
-              <div>
-                <select ref={city} style={{ width: "100%", height: "3.4rem" }}>
-                  <option>Select City</option>
-                  <option>Karachi</option>
-                  <option>Lahore</option>
-                </select>
-              </div>
-              <TextField
-                id="outlined-basic"
-                label={labels[0]}
-                variant="outlined"
-                ref={studentName}
-              />
-              <TextField
-                id="outlined-basic"
-                label={labels[1]}
-                variant="outlined"
-                value={email}
-                onChange={(e) => getEmail(e.target.value)}
-                ref={studentEmail}
-              />
+          <h1 className={styles.formHeading}>{formName}</h1>
+          <div className={styles.fieldContainer}>
+            {/* {fieldComponent1} */}
+            <div className={styles.textFilledResponsive}>
+              <select ref={city} style={{ width: "100%", height: "3.4rem" }}>
+                <option>Select City</option>
+                <option>Karachi</option>
+                <option>Lahore</option>
+              </select>
             </div>
 
-            <div
-              style={{
-                width: "50%",
-                display: "flex",
-                flexDirection: "column",
-                gap: "2rem",
-              }}
-            >
-              <div>
-                <select
-                  ref={course}
-                  style={{ width: "100%", height: "3.4rem" }}
-                >
-                  <option>Select Course</option>
-                  {list.map((el, i) => (
-                    <option key={i}>{el.Course}</option>
-                  ))}
-                </select>
-              </div>
-              <TextField
-                id="outlined-basic"
-                label={labels[2]}
-                variant="outlined"
-                ref={studentFatherName}
-              />
-              <TextField
-                id="outlined-basic"
-                label={labels[3]}
-                variant="outlined"
-                ref={studentPassword}
-                type="password"
-              />
+            <div className={styles.textFilledResponsive}>
+              <select ref={course} style={{ width: "100%", height: "3.4rem" }}>
+                <option>Select Course</option>
+                {list.map((el, i) => (
+                  <option key={i}>{el.Course}</option>
+                ))}
+              </select>
             </div>
+            <TextField
+              id="outlined-basic1"
+              label={labels[0]}
+              variant="outlined"
+              ref={studentName}
+              className={styles.textFilledResponsive}
+            />
+
+            <TextField
+              id="outlined-basic2"
+              label={labels[2]}
+              variant="outlined"
+              ref={studentFatherName}
+              className={styles.textFilledResponsive}
+            />
+
+            <TextField
+              id="outlined-basic3"
+              label={labels[1]}
+              variant="outlined"
+              value={email}
+              onChange={(e) => getEmail(e.target.value)}
+              ref={studentEmail}
+              className={styles.textFilledResponsive}
+            />
+
+            <TextField
+              id="outlined-basic4"
+              label={labels[3]}
+              variant="outlined"
+              ref={studentPassword}
+              type="password"
+              className={styles.textFilledResponsive}
+            />
           </div>
 
-          <div
-            style={{
-              width: "70%",
-              display: "flex",
-              gap: "1rem",
-              justifyContent: "flex-end",
-              margin: "0 auto",
-            }}
-          >
+          <div className={styles.btnContainer}>
             {loading ? <SavingBtn /> : <Uploader email={email} />}
             {submitLoading ? (
               <SavingBtn />
             ) : (
               <Button
                 type="submit"
-                sx={{
-                  width: "10rem",
-                  fontWeight: "bold",
-                  display: "flex",
-                  justify: "center",
-                }}
+                className={styles.formBtn}
                 variant="contained"
               >
                 {btnName}

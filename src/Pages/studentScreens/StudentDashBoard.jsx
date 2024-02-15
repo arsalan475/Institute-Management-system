@@ -36,6 +36,8 @@ function Student() {
       } catch (e) {
         console.log(e.message, "message");
         isloading(false);
+      } finally {
+        isloading(false);
       }
     }
 

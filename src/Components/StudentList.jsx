@@ -14,6 +14,8 @@ import { doc, deleteDoc, db } from "../Config/FirebaseConfig";
 import { useContext } from "react";
 import UserContext from "../Config/context";
 import ProfileCard from "./ProfileCard";
+import styles from "./studentList.module.css";
+import { Style } from "@mui/icons-material";
 
 const Header = {
   width: "25%",
@@ -77,7 +79,11 @@ export default function StudentList({ data, setData, docId, setDocId }) {
     <>
       {open && <ProfileCard isOpen={isOpen} image={image} data={profileData} />}
       <div
-        style={{ width: "100%", display: "flex", justifyContent: "flex-start" }}
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "flex-start",
+        }}
       >
         <List
           dense
@@ -91,6 +97,7 @@ export default function StudentList({ data, setData, docId, setDocId }) {
           }}
         >
           <div
+            className={styles.header}
             style={{
               display: "flex",
               justifyContent: "space-evenly",
@@ -108,26 +115,31 @@ export default function StudentList({ data, setData, docId, setDocId }) {
             const labelId = `checkbox-list-secondary-label-${index}`;
             return (
               <ListItem
-                onClick={() => {
-                  showProfile(index);
-                  showModal();
-                }}
                 sx={{ mb: "1rem" }}
                 key={index}
                 secondaryAction={
                   <Button
                     onClick={() => deleteUser(index)}
-                    startIcon={<DeleteIcon />}
+                    startIcon={<DeleteIcon className={styles.dtBtn} />}
                   ></Button>
                 }
                 disablePadding
               >
-                <ListItemButton>
-                  <ListItemAvatar>
+                <ListItemButton
+                  onClick={() => {
+                    showProfile(index);
+                    showModal();
+                  }}
+                  className={styles.liItem}
+                >
+                  <ListItemAvatar className={styles.avatarContainer}>
                     <Avatar
                       alt={`Avatar n°${index + 1}`}
                       src={el.url}
-                      sx={{ border: "3px solid #1976D2" }}
+                      sx={{
+                        border: "3px solid #1976D2",
+                      }}
+                      className={styles.avatarImg}
                     />
                   </ListItemAvatar>
 

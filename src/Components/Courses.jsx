@@ -4,7 +4,7 @@ import Button from "@mui/joy/Button";
 import Card from "@mui/joy/Card";
 import CardActions from "@mui/joy/CardActions";
 import CardContent from "@mui/joy/CardContent";
-
+import styles from "./Courses.module.css";
 import Typography from "@mui/joy/Typography";
 import BakeryDiningIcon from "@mui/icons-material/BakeryDining";
 
@@ -62,9 +62,10 @@ export default function Courses({ student }) {
       holdLength.length = 0;
     } catch (e) {
       isloading(false);
+    } finally {
+      isloading(false);
     }
     // holdAllStudents.length = 0;
-    isloading(false);
   }
 
   function handdleDetails(e) {
@@ -91,7 +92,7 @@ export default function Courses({ student }) {
         "--icon-size": "100px",
         paddingTop: "0",
       }}
-      className="parent"
+      className={`parent ${styles.card}`}
     >
       <i>
         <b>Teacher Name</b> <br />{" "}

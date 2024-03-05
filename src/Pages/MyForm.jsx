@@ -150,6 +150,10 @@ export default function MyForm({ formName, labels, btnName, children }) {
             flexDirection: "column",
             gap: "2rem",
             padding: "1rem 0",
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%,-50%)",
             width: "100%",
           }}
         >

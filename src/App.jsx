@@ -64,7 +64,7 @@ function App() {
               index
               element={
                 <MyForm
-                  formName={"Addmission Form"}
+                  formName={"Admission Form"}
                   labels={["Your Name", "Email", "Father Name", "Password"]}
                   btnName={"Submit"}
                 >

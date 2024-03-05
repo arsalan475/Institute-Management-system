@@ -44,12 +44,12 @@ const Uploader = ({ email }) => {
     // const storageRef = firebase.storage().storageRef(`images/${image.name}`);
     const uploadTask = uploadBytes(imgRef, file).then((snapshot) => {
       console.log("added to firestore");
-      console.log(email);
+
       getDownloadURL(imgRef)
         .then((url) => {
           // `url` is the download URL for 'images/stars.jpg
           console.log("uploaded");
-          setImageUrl(url);
+          setImageUrl(() => url);
           setUpload(true);
         })
         .catch((error) => {
@@ -91,7 +91,7 @@ const Uploader = ({ email }) => {
             </SvgIcon>
           }
         >
-          {upload ? "Uploaded" : "Upload a file"}
+          {upload ? "Uploaded" : "Upload file"}
           <VisuallyHiddenInput type="file" onChange={(e) => handleChange(e)} />
         </Button>
       )}

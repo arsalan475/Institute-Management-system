@@ -209,7 +209,7 @@ export default function MyForm({ formName, labels, btnName, children }) {
           </div>
 
           <div className={styles.btnContainer}>
-            {loading ? <SavingBtn /> : <Uploader email={email} />}
+            <Uploader email={email} />
             {submitLoading ? (
               <SavingBtn />
             ) : (
